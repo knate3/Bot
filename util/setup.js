@@ -2,8 +2,6 @@ const inquirer = require("inquirer");
 const fs = require("fs");
 
 let file = fs.readFileSync("./config.json", "utf8");
-//const filee = JSON.parse(fs.readFileSync("./config.json", "utf8"));
-//const fileee = JSON.parse(fs.readFileSync("./config.json", "utf8"));
 
 
 let prompts = [
@@ -31,8 +29,6 @@ let prompts = [
 
   const answers = await inquirer.prompt(prompts);
 
-//file = "token": answers.token,"prefix": answers.prefix,"ownerID": answers.id;
-  
 if (!file) file = {
     "token": answers.token,
     "prefix": answers.prefix,
@@ -40,15 +36,10 @@ if (!file) file = {
   
   };
 
-  //file.token = answers.token;
 
-    //filee.prefix = answers.id;
-    //fileee.ownerID = answers.prefix;
-  
 
 fs.writeFile("./config.json", JSON.stringify(file), (err) => console.error);
-//fs.writeFile("./config.json", JSON.stringify(filee), (err) => console.error);
-//fs.writeFile("./config.json", JSON.stringify(fileee), (err) => console.error);
+
   console.log("REMEMBER TO NEVER SHARE YOUR TOKEN WITH ANYONE!");
   console.log("Configuration has been written, enjoy! by knate3#9781");
 }());
