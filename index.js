@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 const fs = require('fs');
 const Discord = require('discord.js');
 const { prefix, token, ownerID } = require('./config.json');
@@ -188,5 +187,3 @@ if(command.owner){
 
 
 client.login(token);
-
->>>>>>> 8db68e47e270cb008e5a88271e4f11d0a8e27263
