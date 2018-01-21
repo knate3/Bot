@@ -5,8 +5,6 @@ const { prefix, token, ownerID } = require('./config.json');
 
 const client = new Discord.Client();
 client.commands = new Discord.Collection();
-const klaw = require("klaw");
-const path = require("path");
 const commandFiles = fs.readdirSync('./commands');
 
 for (const file of commandFiles) {
@@ -19,6 +17,9 @@ const cooldowns = new Discord.Collection();
 //By knate3#9781
 
 //phantom.rocks
+client.on('ready', () =>{
+	console.log(`Ready logged into: ${client.user.tag},\n--------CONFIG--------\nTOKEN: ${token}\nPREFIX: ${prefix}\nOWNERID: ${ownerID}`);
+})
 
 client.on('message', message => {
 	if (!message.content.startsWith(prefix) || message.author.bot) return;
@@ -73,22 +74,6 @@ if(command.owner){
 	}
 });
 
- const eventList = [];
-  klaw("./events").on("data", (item) => {  
-    const eventFile = path.parse(item.path);
-    if (!eventFile.ext || eventFile.ext !== ".js") return;
-    const eventName = eventFile.name.split(".")[0];
-    try {
-      const event = new (require(`${eventFile.dir}${path.sep}${eventFile.name}${eventFile.ext}`))(client);    
-      eventList.push(event);      
-      client.on(eventName, (...args) => event.run(...args));
-      delete require.cache[require.resolve(`${eventFile.dir}${path.sep}${eventFile.name}${eventFile.ext}`)];
-    } catch (error) {
-        console.log(`Error loading event ${eventFile.name}: ${error}`);
-    }
-  }).on("end", () => {
-    console.log(`Loaded a total of ${eventList.length} events.`);
-  }).on("error", (error) =>   console.log(error));
-
+ 
 
 client.login(token);
