@@ -6,13 +6,13 @@
 
 
 You also need your bot's token. This is obtained by creating an application in
-the Developer section of discordapp.com (https://discordapp.com/developers). Check (https://goo.gl/VXscKH)
-for more info, and you will need your id go here (https://goo.gl/HSNcje).
+the Developer section of [discordapp.com](https://discordapp.com/developers). [Check](https://goo.gl/VXscKH)
+for more info, and you will need your [ID](https://goo.gl/HSNcje).
 
 
 ## Starting the bot
 
-To start the bot, go in the folder with the bot files and in the command prompt, run the following commands: 
+To start the bot, Open the folder with the bot files in command prompt, And run the following commands: 
 
 `npm install`
 
