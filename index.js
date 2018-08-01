@@ -1,7 +1,7 @@
 const fs = require('fs');
 const Discord = require('discord.js');
 const { prefix, token, ownerID } = require('./config.json');
-
+const knate = "knate3#9781";
 
 const client = new Discord.Client();
 client.commands = new Discord.Collection();
@@ -17,8 +17,9 @@ const cooldowns = new Discord.Collection();
 //By knate3#9781
 
 //phantom.rocks
+
 client.on('ready', () =>{
-	console.log(`Ready logged into: ${client.user.tag},\n--------CONFIG--------\nTOKEN: ${token}\nPREFIX: ${prefix}\nOWNERID: ${ownerID}`);
+	console.log(`Ready logged into: ${client.user.tag},\n--------CONFIG--------\nTOKEN: ${token}\nPREFIX: ${prefix}\nOWNERID: ${ownerID}\nBY: ${knate}`);
 })
 
 client.on('message', message => {

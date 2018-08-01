@@ -1,7 +1,8 @@
 const inquirer = require("inquirer");
 const fs = require("fs");
 
-let file = fs.readFileSync("./config.json", "utf8");
+
+let baseConfig = fs.readFileSync("./util/setup_base.txt", "utf8");
 
 
 let prompts = [
@@ -29,16 +30,15 @@ let prompts = [
 
   const answers = await inquirer.prompt(prompts);
 
-if (!file) file = {
-    "token": answers.token,
-    "prefix": answers.prefix,
-    "ownerID": answers.id
+
+  baseConfig = baseConfig
+    .replace("{{token}}", `"${answers.token}"`)
+    .replace("{{prefix}}", `"${answers.prefix}"`)
+    .replace("{{ownerID}}", `"${answers.id}"`);
   
-  };
+  fs.writeFileSync("./config.json", baseConfig);
 
 
-
-fs.writeFile("./config.json", JSON.stringify(file), (err) => console.error);
 
   console.log("REMEMBER TO NEVER SHARE YOUR TOKEN WITH ANYONE!");
   console.log("Configuration has been written, enjoy! by knate3#9781");
