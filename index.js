@@ -15,7 +15,6 @@ for (const file of commandFiles) {
 const cooldowns = new Discord.Collection();
 
 //By knate3#9781
-
 //phantom.rocks
 
 client.on('ready', () =>{
