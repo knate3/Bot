@@ -1,5 +1,5 @@
 {
-  "name": "bot",
+  "name": "discordbotjs",
   "version": "0.0.0",
   "description": "Discord bot using discord.js",
   "main": "index.js",
@@ -10,7 +10,6 @@
   "dependencies": {
     "discord.js": "^11.2.1",
     "fs": "0.0.1-security",
-    "inquirer": "^5.0.0",
-    "pm2": "^2.9.1"
+    "inquirer": "^5.0.0"
   }
 }

@@ -1,20 +1,25 @@
 module.exports = {
   name: 'setStatus',
   description: 'Set my status.',
-  args: true,
+  usage: 'setStatus <1, 2 or 3>',
+	aliases: ['setstatus'],
+	args: true,
+	owner: true,
+	guildOnly: false,
+	cooldown: 120, // Discord has a ratelimit don't change.
   execute(client, message, args) {
-  const status = {
-  1: "online",
-  2: "idle",
-  3: "dnd",
-  4: "offline"
-};
-  //status[member.user.presence.status]
-      if (!agrs) {
-      args = '1';
-    }
-    client.user.setStatus(status[args]).then(()=>{message.channel.send(`I have set my status to: ${status[args]}`)})
+    args = args || '1';
+    const status = {
+      1: "online",
+      2: "idle",
+      3: "dnd",
+      4: "offline"
+    };
+    client.user.setStatus(status[args]).then(() => {
+      message.reply(`I have set my status to: ${status[args]}`)
+    })
 
 
 
-  }}
+  }
+}

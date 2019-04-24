@@ -1,9 +1,16 @@
 module.exports = {
 	name: 'about',
-	description: 'About me!',
-	args: true,
-	execute(client, message, args) {
-
-const { prefix, token, ownerID } = require('../config.json');
-message.channel.send(`H-Hey there i'm ${client.user.username} i'm here to help you and make your server fun and awesome i was made by my dad(knate3#9781) and <@${ownerID}>`)
-	}}
+	description: 'Learn about me!',
+	usage: 'about',
+	aliases: [],
+	args: false,
+	owner: false,
+	guildOnly: true,
+	cooldown: 3,
+	execute(client, message) {
+		const {
+			ownerName
+		} = require('./config.json');
+		message.channel.send(`H-Hey there I'm ${client.user.username}, I'm here to help you and make your server fun and awesome I was made by knate3#9781 and assembled ${ownerName}`)
+	}
+}

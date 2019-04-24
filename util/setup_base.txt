@@ -1,5 +1,5 @@
  {
  "token": {{token}},
-    "prefix": {{prefix}},
-    "ownerID": {{ownerID}}
+    "prefix": {{prefix}}
+     "ownerName": {{name}}
     }

@@ -2,10 +2,14 @@ module.exports = {
 	name: 'avatar',
 	guildOnly: true,
 	description: 'Get someones avatar.',
-	args: true,
-	execute(client, message, args) {
-
-
-var user = message.mentions.users.first() || message.author || message.guild.members.get(result);
-message.channel.send(user.avatarURL);
-	}}
+	usage: 'avatar <@user>',
+	aliases: ['profile'],
+	args: false,
+	owner: false,
+	guildOnly: true,
+	cooldown: 3,
+	execute(client, message) {
+		const user = message.guild.member(message.mentions.users.first()) || message.author;
+		message.channel.send(user.avatarURL);
+	}
+}

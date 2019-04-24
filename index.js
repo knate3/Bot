@@ -1,34 +1,34 @@
 const fs = require('fs');
 const Discord = require('discord.js');
-const { prefix, token, ownerID } = require('./config.json');
-const knate = "knate3#9781";
-
+// Here we get Prefix, and the token to run.
+const {
+	prefix,
+	token,
+	ownerName
+} = require('./config.json');
 const client = new Discord.Client();
-client.commands = new Discord.Collection();
-const commandFiles = fs.readdirSync('./commands');
 
+client.commands = new Discord.Collection();
+cooldowns = new Discord.Collection();
+
+// Here we load all the commands.
+const commandFiles = fs.readdirSync('./commands');
 for (const file of commandFiles) {
 	const command = require(`./commands/${file}`);
 	client.commands.set(command.name, command);
 }
 
-const cooldowns = new Discord.Collection();
 
-//By knate3#9781
-//phantom.rocks
-
-client.on('ready', () =>{
-	console.log(`Ready logged into: ${client.user.tag},\n--------CONFIG--------\nTOKEN: ${token}\nPREFIX: ${prefix}\nOWNERID: ${ownerID}\nBY: ${knate}`);
-})
+client.on('ready', () => {
+	console.log(`Ready logged into: ${client.user.tag},\n--------CONFIG--------\nTOKEN: ${token}\nPREFIX: ${prefix}\nOWNER: ${ownerName}\nBY: knate3#9781`);
+});
 
 client.on('message', message => {
 	if (!message.content.startsWith(prefix) || message.author.bot) return;
-
 	const args = message.content.slice(prefix.length).split(/ +/);
 	const commandName = args.shift().toLowerCase();
-
-	const command = client.commands.get(commandName)
-		|| client.commands.find(cmd => cmd.aliases && cmd.aliases.includes(commandName));
+	const command = client.commands.get(commandName) ||
+		client.commands.find(cmd => cmd.aliases && cmd.aliases.includes(commandName));
 
 	if (!command) return;
 
@@ -36,14 +36,11 @@ client.on('message', message => {
 		return message.reply('I can\'t execute that command inside DMs!');
 	}
 
-if(command.owner){
-	if(message.author.id !== ownerID) return message.channel.send('Sorry your not the owner.')
-}
+	if (command.owner && message.author.username !== ownerName) return message.channel.send('Sorry your not the owner.');
 
+	// Here we check the ratelimit.
+	if (!cooldowns.has(command.name)) cooldowns.set(command.name, new Discord.Collection());
 
-	if (!cooldowns.has(command.name)) {
-		cooldowns.set(command.name, new Discord.Collection());
-	}
 
 	const now = Date.now();
 	const timestamps = cooldowns.get(command.name);
@@ -52,8 +49,7 @@ if(command.owner){
 	if (!timestamps.has(message.author.id)) {
 		timestamps.set(message.author.id, now);
 		setTimeout(() => timestamps.delete(message.author.id), cooldownAmount);
-	}
-	else {
+	} else {
 		const expirationTime = timestamps.get(message.author.id) + cooldownAmount;
 
 		if (now < expirationTime) {
@@ -66,14 +62,12 @@ if(command.owner){
 	}
 
 	try {
+		// Here we run the command.
 		command.execute(client, message, args);
-	}
-	catch (error) {
+	} catch (error) {
 		console.error(error);
 		message.reply('there was an error trying to execute that command!');
-	}
+	};
 });
-
- 
 
 client.login(token);
