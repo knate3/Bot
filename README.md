@@ -13,7 +13,7 @@ Do you need more help? Visit my server here: https://discord.gg/6SQ3YAh
 
 You also need your bot's token. This is obtained by creating an application in
 the Developer section of [discordapp.com](https://discordapp.com/developers). [Check](https://goo.gl/VXscKH)
-for more info, and you will need your [ID](https://goo.gl/HSNcje).
+for more info.
 
 
 ## Starting the bot
@@ -23,7 +23,7 @@ To start the bot, Open the folder with the bot files in command prompt, And run 
 `npm install`
 
 then run:
-follow the instructions on the screen, it should ask you for your `token`, `prefix`, and `ID`
+follow the instructions on the screen, it should ask you for your `token`, `prefix`, and `username`
 
 then run:
 
