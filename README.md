@@ -1,3 +1,9 @@
+# discord_bot.js
+A simple discord bot that helps you get started within discord.js<br>
+Made by **knate3#9781**
+
+Do you need more help? Visit my server here: https://discord.gg/6SQ3YAh
+
 ## Requirements
 
 - `node` [Version 8.0.0 or higher](https://nodejs.org)
@@ -22,10 +28,6 @@ follow the instructions on the screen, it should ask you for your `token`, `pref
 then run:
 
 `node index.js`
-
->***NOTE:*** By knate3#9781
-
-
 
 ## Inviting to a guild
 
