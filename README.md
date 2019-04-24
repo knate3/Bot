@@ -21,7 +21,7 @@ follow the instructions on the screen, it should ask you for your `token`, `pref
 
 then run:
 
-`pm2 start index.js` or `node index.js`
+`node index.js`
 
 >***NOTE:*** By knate3#9781
 
