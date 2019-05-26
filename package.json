@@ -7,6 +7,10 @@
     "start": "node index.js",
     "prepublish": "node util/setup.js"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/knate3/discord_bot.js.git"
+  },
   "dependencies": {
     "discord.js": "^11.2.1",
     "fs": "0.0.1-security",
