@@ -8,10 +8,9 @@ module.exports = {
 	guildOnly: true,
 	cooldown: 2,
 	execute(client, message) {
-		var pig = ('../images/piggy.jpg');
 		message.channel.send({
 			files: [{
-				attachment: pig
+				attachment: ('../images/piggy.jpg')
 			}]
 		});
 

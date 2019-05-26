@@ -9,7 +9,6 @@ module.exports = {
 	guildOnly: true,
 	cooldown: 3,
 	execute(client, message) {
-		const user = message.guild.member(message.mentions.users.first()) || message.author;
-		message.channel.send(user.avatarURL);
+		message.channel.send((message.mentions.members.first() || message.member).avatarURL);
 	}
 }

@@ -1,6 +1,6 @@
 module.exports = {
 	name: 'doggy',
-	description: 'Give someone a puppy!',
+	description: 'Give someone a image of a dog!',
 	usage: 'doogy',
 	aliases: ['dog'],
 	args: false,
@@ -8,10 +8,9 @@ module.exports = {
 	guildOnly: true,
 	cooldown: 3,
 	execute(client, message) {
-		var pig = ('../images/dog.jpg');
 		message.channel.send({
 			files: [{
-				attachment: pig
+				attachment: ('../images/dog.jpg')
 			}]
 		});
 

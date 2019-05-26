@@ -1,6 +1,5 @@
 const fs = require('fs');
 const Discord = require('discord.js');
-// Here we get Prefix, and the token to run.
 const {
 	prefix,
 	token,
@@ -11,7 +10,6 @@ const client = new Discord.Client();
 client.commands = new Discord.Collection();
 cooldowns = new Discord.Collection();
 
-// Here we load all the commands.
 const commandFiles = fs.readdirSync('./commands');
 for (const file of commandFiles) {
 	const command = require(`./commands/${file}`);
@@ -38,7 +36,6 @@ client.on('message', message => {
 
 	if (command.owner && message.author.username !== ownerName) return message.channel.send('Sorry your not the owner.');
 
-	// Here we check the ratelimit.
 	if (!cooldowns.has(command.name)) cooldowns.set(command.name, new Discord.Collection());
 
 
@@ -62,7 +59,6 @@ client.on('message', message => {
 	}
 
 	try {
-		// Here we run the command.
 		command.execute(client, message, args);
 	} catch (error) {
 		console.error(error);

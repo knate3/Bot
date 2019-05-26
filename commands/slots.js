@@ -8,7 +8,6 @@ module.exports = {
 	guildOnly: false,
 	cooldown: 3,
 	execute(client, message) {
-
 		var emojis = [":apple:", ":tangerine:", ":pear:", ":lemon:", ":watermelon:", ":grapes:", ":strawberry:", ":cherries:", ":heart:", ":100:", ":seven:", ":gem:", ":moneybag:"];
 		var a = emojis[Math.floor(Math.random() * emojis.length)]
 		var b = emojis[Math.floor(Math.random() * emojis.length)]

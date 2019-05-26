@@ -1,13 +1,13 @@
-const Discord = require('discord.js');
+const {RichEmbed} = require('discord.js');
 module.exports = {
   name: 'say',
   description: 'Have the bot say something.',
   usage: 'say <#channel> | <color>(red, green, yellow, purple, blue) | <something you wanna say> | <something you wanna say>',
   aliases: ['embed'],
-	args: tue,
-	owner: true,
-	guildOnly: true,
-	cooldown: 9,
+  args: tue,
+  owner: true,
+  guildOnly: true,
+  cooldown: 9,
   execute(client, message, args) {
 
     const options = args.join(' ');
@@ -21,7 +21,7 @@ module.exports = {
     };
 
     if (!list[0] || !list[1] || !list[2] || !list[3]) {
-      var Error = new Discord.RichEmbed()
+      var Error = new RichEmbed()
         .setColor(0xff0000)
         .addField('Error', 'Put something to say, `say <#channel> | <color> | <stuff> | <stuff>`')
       return message.channel.send({
@@ -29,7 +29,7 @@ module.exports = {
       });
     }
 
-    var sayMsg = new Discord.RichEmbed()
+    var sayMsg = new RichEmbed()
       .setColor(colors[list[1].trim()])
       .addField(list[2], list[3])
     message.mentions.channels.first().send({

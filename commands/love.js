@@ -8,9 +8,7 @@ module.exports = {
 	guildOnly: true,
 	cooldown: 2,
 	execute(client, message) {
-		var user = message.mentions.users.first() || message.author;
-		if (user.id === client.user.id) return message.channel.send('Aww love ya')
-		message.channel.send('mmm give me some of that love boooboo bear ' + user)
+		message.channel.send( message.author + ' Sends love to you, ' + message.mentions.users.first())
 
 	}
 }

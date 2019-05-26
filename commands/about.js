@@ -11,6 +11,6 @@ module.exports = {
 		const {
 			ownerName
 		} = require('./config.json');
-		message.channel.send(`H-Hey there I'm ${client.user.username}, I'm here to help you and make your server fun and awesome I was made by knate3#9781 and assembled ${ownerName}`)
+		message.channel.send(`H-Hey there I'm ${client.user.username}, I'm here to help you and make your server fun and awesome I was made by knate3#9781 and assembled by ${ownerName}`)
 	}
 }
