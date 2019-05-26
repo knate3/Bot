@@ -21,16 +21,15 @@ for more info.
 To start the bot, Open the folder with the bot files in command prompt, And run the following commands: 
 
 `npm install`
-follow the instructions on the screen, it should ask you for your `token`, `prefix`, and `username`
+follow the instructions on the screen, it should ask you for your `token`, `prefix`, and `username`.
 
-<<<<<<< HEAD
 To boot the bot run:
 =======
 then run:
 follow the instructions on the screen, it should ask you for your `token`, `prefix`, and `username`
 
 then run:
->>>>>>> b2644d942a6f9784b05fbc722f12d47e0a29d6d9
+
 
 `node index.js`
 
